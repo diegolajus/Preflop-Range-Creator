@@ -2,19 +2,19 @@
   <div id="app">
     <div class="site-container">
       <ColorPicker/>
-      <HelloWorld/>
+      <Creator/>
     </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Creator from './components/Creator.vue'
 import ColorPicker from './components/ColorPicker.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,ColorPicker,
+    Creator,ColorPicker,
   }
 }
 </script>

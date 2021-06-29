@@ -40,10 +40,10 @@ data() {
             firstCard,
             secondCard,
             fullDeck,
-            message1:"Change Situation",   
-            message2:"Change Situation",   
-            message3:"Change Situation",
-            message4:"Change Situation",
+            message1:"Open Raise",   
+            message2:"Call 4Bet",   
+            message3:"Fold vs Tight",
+            message4:"Raise Over Limpers",
         }
     }, 
    
