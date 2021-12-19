@@ -1,3 +1,13 @@
+<div align="center">
+  
+<img  src="https://github.com/diegolajus/Preflop-Range-Creator/blob/main/src/assets/howoto/howto2.gif">
+<br>
+<img  src="https://github.com/diegolajus/Preflop-Range-Creator/blob/main/src/assets/howoto/howto4.gif">
+<br>  
+<img  src="https://github.com/diegolajus/Preflop-Range-Creator/blob/main/src/assets/howoto/howto5.gif">
+  
+</div>
+
 # app-with-store
 
 ## Project setup
