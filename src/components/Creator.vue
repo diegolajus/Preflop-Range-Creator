@@ -1,35 +1,69 @@
 <template>
         <div class="container">
 
-          <div>
-            <div class="input-container">
-              <h3>2. Edit Legend </h3>              
-              <p>Situation 1</p><input v-model="message1" type="text">
-              <p>Situation 2</p><input v-model="message2" type="text">
-              <p>Situation 3</p><input v-model="message3" type="text">
-              <p>Situation 4</p><input v-model="message4" type="text">
+            <div><ColorPicker/></div>
+            <div>
+              <div class="input-container">
+                <div class="input-group">
+                  <input class="input" v-model="message1" type="text">
+                  <a class="delete-btn" v-on:click="deleteInput1" >&#10006;</a>
+                </div>
+                <div class="input-group">
+                  <input class="input" v-model="message2" type="text">
+                  <a class="delete-btn" v-on:click="deleteInput2" >&#10006;</a>
+                </div>
+                <div class="input-group">
+                  <input class="input" v-model="message3" type="text">
+                  <a class="delete-btn" v-on:click="deleteInput3" >&#10006;</a>
+                </div>
+                <div class="input-group">
+                  <input class="input" v-model="message4" type="text">
+                  <a class="delete-btn" v-on:click="deleteInput4" >&#10006;</a>
+                </div>
+                <div class="input-group">
+                  <input class="input" v-model="message5" type="text">
+                  <a class="delete-btn" v-on:click="deleteInput5" >&#10006;</a>
+                </div>
+              </div>
             </div>
-          </div>
+
+
 
           <div class="box" id="my-node">
-
             <button   class="grow grid" v-on:click="selectHand" v-for="item in this.fullDeck" :key="item">{{item}} </button>
-
             <div class="title-choice-container">              
-              <button v-on:click="selectHand" class="btn-choice"></button><p class="title-choice">{{ message1 }}</p>
-              <button v-on:click="selectHand" class="btn-choice"></button><p class="title-choice">{{ message2 }}</p>
-              <button v-on:click="selectHand" class="btn-choice"></button><p class="title-choice">{{ message3 }}</p>
-              <button v-on:click="selectHand" class="btn-choice"></button><p class="title-choice">{{ message4 }}</p>
+              <button ref="msg1" v-on:click="selectHand" class="btn-choice title-choice">{{ message1 }}</button>
+              <button ref="msg2" v-on:click="selectHand" class="btn-choice title-choice">{{ message2 }}</button>
+              <button ref="msg3" v-on:click="selectHand" class="btn-choice title-choice">{{ message3 }}</button>
+              <button ref="msg4" v-on:click="selectHand" class="btn-choice title-choice">{{ message4 }}</button>
+              <button ref="msg5" v-on:click="selectHand" class="btn-choice title-choice">{{ message5 }}</button>
+
             </div>
           </div>
+
           
+        <div class="download-button-container">
+            <button class="download-button"  @click="makePDF"> GENERATE .JPG</button>
+            <p>{{ filename }}</p>
+        </div>
+
+        <div>
+          <How/>
+        </div>
         </div>
 </template>
 
 
 
 <script>
+import ColorPicker from '../components/ColorPicker.vue'
+import How from '../components/How.vue'
+import domtoimage from 'dom-to-image';
+
 export default {
+  components: {
+    ColorPicker,How
+  },
 data() {
         
         const firstCard = ["A", "K", "Q","J","T","9","8","7","6","5","4","3","2"]
@@ -44,6 +78,14 @@ data() {
             message2:"Call 4Bet",   
             message3:"Fold vs Tight",
             message4:"Raise Over Limpers",
+            message5:"Fold vs Loose",
+            filename:"",
+            color: {
+                hue: 50,
+                saturation: 100,
+                luminosity: 50,
+                alpha: 1
+            },
         }
     }, 
    
@@ -111,9 +153,37 @@ data() {
 
         !this.$store.state.raise.includes(hand) 
         ? this.$store.state.raise.push(hand) && (e.target.style.backgroundColor = `hsl(${this.$store.hue}, ${this.$store.saturation}%, ${this.$store.luminosity}%)`)
-        : _.remove(this.$store.state.raise, (n) => n == `${hand}` ) && (e.target.style.backgroundColor = "rgb(204, 202, 202)");               
+        : _.remove(this.$store.state.raise, (n) => n == `${hand}` ) && (e.target.style.backgroundColor = "rgb(160, 160, 160)");               
     },
-                  
+        deleteInput1(e){
+          e.target.parentElement.remove()
+          this.$refs.msg1.remove()
+    },
+        deleteInput2(e){
+          e.target.parentElement.remove()
+          this.$refs.msg2.remove()
+    },
+            deleteInput3(e){
+          e.target.parentElement.remove()
+          this.$refs.msg3.remove()
+    },
+            deleteInput4(e){
+          e.target.parentElement.remove()
+          this.$refs.msg4.remove()
+    },
+            deleteInput5(e){
+          e.target.parentElement.remove()
+          this.$refs.msg5.remove()
+    },
+            makePDF(){
+domtoimage.toJpeg(document.getElementById('my-node'), { quality: 0.95 })
+    .then(function (dataUrl) {
+        var link = document.createElement('a');
+        link.download = 'my-image-name.jpeg';
+        link.href = dataUrl;
+        link.click();
+    });
+        },
     }
 }
 </script>
@@ -123,34 +193,37 @@ data() {
 .grid{
   font-size: 1rem;
   font-weight: bold;
+  background-color: rgb(160, 160, 160);
+  border-radius: 5%;
 }
 
 .btn-choice{
   width: 5rem;
+  background-color: rgb(160, 160, 160);
+
 }
 
 
 .title-choice-container{
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(221, 221, 221);
   display: flex;
+  justify-content: center;
   flex-direction: row;
   width:775px;
-  border: 3px solid rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
+  height: 50px;
 }
 
 .title-choice{
   color: rgb(0, 0, 0);
   font-weight: bold;
   margin-right: 1rem;
+  width: fit fit-content;
 }
 
 .input-container{
+  width: 300px;
   color:white;
-  margin-top: 1.5rem ;
-  margin-right: 10rem ;
-  border: 1px solid rgb(255, 255, 255);
-  padding: 1.5rem;
-  border-radius: 3%;
 }
 
 .list{
@@ -168,11 +241,12 @@ data() {
 
 button{
   cursor: pointer;
-  background-color: rgb(204, 202, 202);
 }
 
 .container{
   display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .box{
@@ -199,4 +273,34 @@ button{
   color: rgb(255, 255, 255);
 }
 
+.delete-btn{
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.input-group{
+  display: flex;
+  justify-content: center;
+  margin: 80px;
+
+}
+.input{
+  text-align: center;
+  height: 25px;
+  width: 125px;
+  
+}
+
+.download-button-container{
+  display: flex;
+    color:white;
+    margin: 100px;
+
+}
+
+.download-button{
+    height: 3rem;
+    border-radius: 5%;
+}
 </style>

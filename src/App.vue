@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <div class="site-container">
-      <ColorPicker/>
       <Creator/>
     </div>
   </div>
