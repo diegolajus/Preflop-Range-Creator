@@ -40,7 +40,7 @@
   
  <br>
   
-## 4 - Once you've done your strategy is time to use [Preflop Trainer](https://trainer-preflop.netlify.app/)
+## 4 - Once you've done your strategy is time to use [Preflop Trainer](https://github.com/diegolajus/Preflop-Trainer)
   
  <br>
  <br>
