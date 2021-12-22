@@ -1,6 +1,8 @@
 <h1 align="center">Preflop Strategy Range Creator </h1>
 <h3 align="center"> - Trust your strategy - <h3>
-  
+
+  <br>
+  <br>
   
 ## 1 - Pick a color and change the situation
   
@@ -20,12 +22,29 @@
 <img  src="https://github.com/diegolajus/Preflop-Range-Creator/blob/main/src/assets/howoto/howto4.gif">
 </div>
   
-## 3 - Finish all ranges for Open Rise, vs Open Riser and vs Limper situations
+## 3 - Finish all ranges for Open Rise, vs Open Riser and vs Limpers situations
   
-
-Once you've done your strategy is time to use [Preflop Trainer](https://trainer-preflop.netlify.app/)
+  In total you should have 18 images
   
+<div align="center">
+<img  src="https://github.com/diegolajus/Preflop-Range-Creator/blob/main/src/assets/howoto/folders.jpg">
+</div>
   
+  Each of the folders contains 6 images, one for each position (including the 'not posible situations' like UTG vs Open Rise.
+  
+  - openrise folder -> utg.jpg mp.jpg co.jpg btn.jpg sb.jpg bb.jpg
+  
+  - vsopenrise folder -> utg.jpg mp.jpg co.jpg btn.jpg sb.jpg bb.jpg
+  
+  - vslimpers folder -> utg.jpg mp.jpg co.jpg btn.jpg sb.jpg bb.jpg
+  
+ <br>
+  
+## 4 - Once you've done your strategy is time to use [Preflop Trainer](https://trainer-preflop.netlify.app/)
+  
+ <br>
+ <br>
+ <br>
 
 
 
@@ -43,8 +62,3 @@ npm run serve
 ```
 npm run build
 ```
-
-### 🚧 Readme 🚧
-
-"# Range-Creator" 
-"# Range-Creator" 
