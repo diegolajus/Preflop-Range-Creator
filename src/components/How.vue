@@ -6,8 +6,8 @@
             <p>2- Pick a color for each one</p>
             <p>3- Select Hands & Situations</p>
             <p>4- Generate Png</p>
-            <p>5- Use <a href="https://github.com/diegolajus/React-Projects/tree/main/React-Poker-Preflop">This repo</a></p>
-            <p>6- Finish your <a href="https://sad-aryabhata-3cf7d0.netlify.app/">Trainer App</a></p>
+            <p>5- Use <a href="https://github.com/diegolajus/Preflop-Trainer">This repo</a></p>
+            <p>6- Finish your <a href="https://trainer-preflop.netlify.app/">Trainer App</a></p>
         </div>
     </div>
 </template>
